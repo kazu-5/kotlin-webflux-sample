@@ -1,12 +1,13 @@
-package com.example.kotlinwebfluxsample
+package com.example.web
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class KotlinWebfluxSampleApplicationTests {
+class WebApplicationTests {
 
     @Test
     fun contextLoads() {
     }
+
 }

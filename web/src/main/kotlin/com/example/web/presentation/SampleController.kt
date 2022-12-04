@@ -1,4 +1,4 @@
-package com.example.presentation
+package com.example.web.presentation
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

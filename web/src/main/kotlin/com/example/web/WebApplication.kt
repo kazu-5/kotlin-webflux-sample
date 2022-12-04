@@ -1,11 +1,11 @@
-package com.example
+package com.example.web
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class KotlinWebfluxSampleApplication
+class WebApplication
 
 fun main(args: Array<String>) {
-    runApplication<KotlinWebfluxSampleApplication>(*args)
+    runApplication<WebApplication>(*args)
 }
