@@ -20,6 +20,13 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql:42.5.0")
 }
 
+flyway {
+    url = "jdbc:postgresql://localhost:5433/task_manage"
+    user = "user"
+    password = "password"
+    cleanDisabled = false // https://flywaydb.org/documentation/configuration/parameters/cleanDisabled
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
