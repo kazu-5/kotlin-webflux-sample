@@ -3,10 +3,13 @@ version: '3.1'
 
 services:
   db:
+    # https://hub.docker.com/_/postgres
     container_name: postgres
-    image: postgres
+    image: postgres:13.9-alpine
     restart: always
     environment:
       POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: task_manage
     ports:
       - '5433:5432'
