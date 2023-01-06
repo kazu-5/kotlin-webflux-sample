@@ -7,3 +7,4 @@
 
 # マルチモジュールについて
 https://kotlindays.com/2019/12/06/multi-module-spring-boot-in-kotlin-dsl/index.html
+https://github.com/emmapatterson/multi-module-spring-boot
