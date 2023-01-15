@@ -20,7 +20,7 @@ class TaskUseCase(
     }
 
     fun create(name: String): TaskId {
-        val task = Task(null , name = TaskName(name))
+        val task = Task.create(name)
         return taskRepository.create(task).id!!
     }
 }
