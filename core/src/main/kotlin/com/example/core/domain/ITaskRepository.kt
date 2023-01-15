@@ -5,5 +5,7 @@ interface ITaskRepository {
 
     fun find(id: TaskId): Task
 
-    fun save(task: Task): TaskId
+    fun create(task: Task): Task
+
+    fun update(task: Task): Task
 }

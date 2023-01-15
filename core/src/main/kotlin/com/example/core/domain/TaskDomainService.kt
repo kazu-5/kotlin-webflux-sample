@@ -8,6 +8,6 @@ class TaskDomainService(
 ) {
     fun create(name: String): TaskId {
         val task = Task(null, TaskName(name))
-        return taskRepository.save(task)
+        return taskRepository.create(task).id!!
     }
 }
