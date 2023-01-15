@@ -1,8 +1,8 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import nu.studer.gradle.jooq.JooqEdition
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jooq.meta.jaxb.ForcedType
 import org.jooq.meta.jaxb.Logging
 import org.jooq.meta.jaxb.Property
-import org.jooq.meta.jaxb.ForcedType
 
 plugins {
     // https://plugins.gradle.org/plugin/org.flywaydb.flyway
@@ -63,32 +63,31 @@ jooq {
                     )
                 }
                 generator.apply {
-                    name = "org.jooq.codegen.DefaultGenerator"
+                    // https://www.jooq.org/doc/latest/manual/code-generation/kotlingenerator/
+                    name = "org.jooq.codegen.KotlinGenerator"
+                    //  name = "org.jooq.codegen.DefaultGenerator"
                     database.apply {
                         // https://www.jooq.org/doc/latest/manual/code-generation/codegen-advanced/codegen-config-database/codegen-database-name/
                         name = "org.jooq.meta.postgres.PostgresDatabase"
-                        forcedTypes = listOf(
-                            ForcedType().apply {
-                                name = "varchar"
-                                includeExpression = ".*"
-                                includeTypes = "JSONB?"
-                            },
-                            ForcedType().apply {
-                                name = "varchar"
-                                includeExpression = ".*"
-                                includeTypes = "INET"
-                            }
-                        )
-                    }
-                    generate.apply {
-                        isDeprecated = false
-                        isRecords = false
-                        isImmutablePojos = false
-                        isFluentSetters = false
+//                        forcedTypes = listOf(
+//                            ForcedType().apply {
+//                                name = "varchar"
+//                                includeExpression = ".*"
+//                                includeTypes = "JSONB?"
+//                            },
+//                            ForcedType().apply {
+//                                name = "varchar"
+//                                includeExpression = ".*"
+//                                includeTypes = "INET"
+//                            }
+//                        )
+                        inputSchema = "public"
+                        includes = ".*"
+                        excludes = "flyway_schema_history"
                     }
                     target.apply {
-                        packageName = "nu.studer.sample"
-                        directory = "src/generated/jooq"
+                        packageName = "com.sample.jooq"
+                        directory = "src/main/kotlin"
                     }
                     strategy.name = "org.jooq.codegen.DefaultGeneratorStrategy"
                 }

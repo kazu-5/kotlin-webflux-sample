@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation(project("core"))
+    implementation(project(":core"))
     implementation("org.springframework.boot:spring-boot-starter")
     implementation ("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.jetbrains.kotlin:kotlin-reflect")

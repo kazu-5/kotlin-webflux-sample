@@ -4,6 +4,11 @@ import com.example.demo.api.controller.shared.response.EmptyResponse
 import com.example.demo.api.controller.shared.response.IResponse
 import com.example.demo.api.controller.shared.response.Response
 import com.example.demo.api.controller.shared.response.ValidationResponse
+import com.example.core.domain.TaskId
+import com.example.core.shared.exception.ValidationException
+import com.example.core.usecase.TaskDetailDto
+import com.example.core.usecase.TaskDto
+import com.example.core.usecase.TaskUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
@@ -37,7 +42,7 @@ class TasksController(private val taskUseCase: TaskUseCase) {
     }
 
     @ExceptionHandler(ValidationException::class)
-    fun validation(req: HttpServletRequest, exception: ValidationException):ValidationResponse {
+    fun validation(exception: ValidationException):ValidationResponse {
         return ValidationResponse(exception.validationMessage)
     }
 }
